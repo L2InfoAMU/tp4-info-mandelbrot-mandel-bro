@@ -39,7 +39,7 @@ public class Complex {
     /**
      * One as a complex number
      */
-    static Complex ONE = new Complex(1, 1);
+    static Complex ONE = new Complex(1.0, 0.0);
 
 
     /**
