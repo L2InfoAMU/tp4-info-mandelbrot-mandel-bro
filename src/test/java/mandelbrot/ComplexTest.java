@@ -148,4 +148,9 @@ public class ComplexTest {
         assertEquals(new Complex(real*2, imaginary*2), new Complex(real, imaginary).multiply(two));
         assertEquals(new Complex(0,4), onePlusI.multiply(new Complex(2,2)));
     }
+
+    @Test
+    void testSquaredModulus() {
+        assertEquals(Complex.ZERO, Complex.ZERO.squaredModulus());
+    }
 }
