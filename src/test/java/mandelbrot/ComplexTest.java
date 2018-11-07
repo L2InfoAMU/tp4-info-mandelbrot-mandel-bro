@@ -14,7 +14,7 @@ public class ComplexTest {
     private final Complex twoI = new Complex(0,2);
     private final Complex two = new Complex(2,0);
     private final double real = -12;
-    private final double imaginary = 10;
+    private final double imaginary = 10.0;
 
 
     @Test
@@ -86,8 +86,7 @@ public class ComplexTest {
     void testSubstract(){
         assertEquals(minusOne, Complex.ZERO.subtract(Complex.ONE));
         assertEquals(oneMinusI, Complex.ONE.subtract(Complex.I));
-        assertEquals(new Complex(real-1,imaginary-1),
-                new Complex(real, imaginary).subtract(onePlusI));
+        assertEquals(new Complex(real-1,imaginary-1), new Complex(real, imaginary).subtract(onePlusI));
     }
 
     @Test
@@ -115,10 +114,8 @@ public class ComplexTest {
         assertEquals(Complex.I, Complex.rotation(Math.PI/2));
         assertEquals(minusI, Complex.rotation(-Math.PI/2));
         assertEquals(Complex.ONE, Complex.rotation(0));
-        assertEquals(new Complex(Math.sqrt(2)/2., Math.sqrt(2)/2.),
-                Complex.rotation(Math.PI/4));
-        assertEquals(new Complex(1./2., Math.sqrt(3)/2.),
-                Complex.rotation(Math.PI/3));
+        assertEquals(new Complex(Math.sqrt(2)/2., Math.sqrt(2)/2.), Complex.rotation(Math.PI/4));
+        assertEquals(new Complex(1./2., Math.sqrt(3)/2.), Complex.rotation(Math.PI/3));
     }
 
     @Test
@@ -132,5 +129,11 @@ public class ComplexTest {
         Complex c1 = new Complex(real, imaginary);
         Complex c2 = new Complex(real, imaginary);
         assertEquals(c1.hashCode(), c2.hashCode());
+    }
+
+    @Test
+    void testReal() {
+        assertEquals(two, Complex.real(2));
+        assertEquals(Complex.ZERO, Complex.real(0));
     }
 }
