@@ -120,8 +120,8 @@ public class Complex {
      */
     Complex multiply(Complex factor) {
         return new Complex(
-                this.real * factor.real + this.imaginary * factor.imaginary,
-                this.real * factor.imaginary - this.imaginary * factor.real
+                (this.real * factor.real) - (this.imaginary * factor.imaginary),
+                (this.real * factor.imaginary) + (this.imaginary * factor.real)
         );
     }
 

@@ -141,4 +141,11 @@ public class ComplexTest {
         assertEquals(new Complex(real+1,imaginary+1),
                 new Complex(real, imaginary).add(onePlusI));
     }
+
+    @Test
+    void testMultiply() {
+        assertEquals(Complex.ZERO, new Complex(real, imaginary).multiply(Complex.ZERO));
+        assertEquals(new Complex(real*2, imaginary*2), new Complex(real, imaginary).multiply(two));
+        assertEquals(new Complex(0,4), onePlusI.multiply(new Complex(2,2)));
+    }
 }
