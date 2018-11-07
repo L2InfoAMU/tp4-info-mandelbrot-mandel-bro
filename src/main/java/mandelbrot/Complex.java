@@ -45,7 +45,7 @@ public class Complex {
     /**
      * The complex number whose square is -1
      */
-    static Complex I = new Complex(0, -1);
+    static Complex I = new Complex(0.0, 1.0);
 
     double getReal() {
         return real;
