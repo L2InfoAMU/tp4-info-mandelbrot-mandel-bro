@@ -48,12 +48,10 @@ public class Complex {
     static Complex I = new Complex(0, -1);
 
     double getReal() {
-        return imaginary;
+        return real;
     }
 
-    double getImaginary() {
-        return imaginary;
-    }
+    double getImaginary() { return imaginary; }
 
     /**
      * Creates complex numbers corresponding to rotations
