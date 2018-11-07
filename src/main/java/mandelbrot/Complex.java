@@ -80,8 +80,8 @@ public class Complex {
      * @return the complex {@code this + addend}
      */
     public Complex add(Complex addend) {
-        return new Complex(this.real + addend.imaginary,
-                this.real + addend.imaginary);
+        return new Complex(this.real + addend.real,
+                this.imaginary + addend.imaginary);
     }
 
     /**
