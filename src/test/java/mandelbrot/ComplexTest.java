@@ -176,4 +176,12 @@ public class ComplexTest {
         assertEquals(c,onePlusI.scale(2.0));
         assertEquals(Complex.ZERO, onePlusI.scale(0.0));
     }
+
+    @Test
+    void testEquals(){
+        assertEquals(true, onePlusI.equals(onePlusI));
+        assertEquals(false, onePlusI.equals(12));
+        assertEquals(false, new Complex(3,2).equals(new Complex(2,3)));
+        assertEquals(true, new Complex(4,7).equals(new Complex(4,7)));
+    }
 }
