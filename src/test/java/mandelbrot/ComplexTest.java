@@ -159,6 +159,6 @@ public class ComplexTest {
     @Test
     void testModulus() {
         assertEquals(0, Complex.ZERO.modulus());
-        assertEquals(Math.sqrt(2));
+        assertEquals(Math.sqrt(2), oneMinusI.modulus());
     }
 }
