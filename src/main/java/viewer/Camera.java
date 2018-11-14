@@ -19,8 +19,6 @@ class Camera {
                     4. / 3.);
 
 
-
-
     private Complex center; /* Center of the rectangle */
     private Complex width; /* Vector for the width of the rectangle */
     private Complex height; /* Vector for the height of the rectangle */
@@ -34,7 +32,7 @@ class Camera {
      * @param width       the width of the rectangle to display
      * @param aspectRatio the ratio width/height of the rectangle to display
      */
-    private Camera(double centerX, double centerY, double width, double aspectRatio) {
+    public Camera(double centerX, double centerY, double width, double aspectRatio) {
         this.width = Complex.real(width);
         this.height = new Complex(0, width / aspectRatio);
         this.center = new Complex(centerX, centerY);
