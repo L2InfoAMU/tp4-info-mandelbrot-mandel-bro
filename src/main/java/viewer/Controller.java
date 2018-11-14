@@ -37,7 +37,7 @@ public class Controller implements Initializable {
     /* positions of colors in the histogram */
     private double[] breakpoints = {0., 0.75, 0.85, 0.95, 0.99, 1.0};
     /* colors of the histogram */
-    private Color[] colors =
+    private Color[] colors_set1 =
             {Color.gray(0.2),
                     Color.gray(0.7),
                     Color.rgb(55, 118, 145),
@@ -45,8 +45,28 @@ public class Controller implements Initializable {
                     Color.rgb(145, 121, 82),
                     Color.rgb(250, 250, 200)
             };
+
+    private Color[] colors_set2 = {
+            Color.gray(0.2),
+            Color.rgb(0,47,167),
+            Color.rgb(182,120,35),
+            Color.rgb(255,244,141),
+            Color.rgb(128,128,0),
+            Color.rgb(231,62,1)
+    };
+
+    private Color[] colors_set3 = {
+            Color.rgb(223,109,20),
+            Color.rgb(223,255,0),
+            Color.rgb(0,255,0),
+            Color.rgb(255,0,255),
+            Color.rgb(255,9,33),
+            Color.rgb(108,2,119)
+
+    };
+
     /* algorithm to generate the distribution of colors */
-    private Histogram histogram = new Histogram(breakpoints, colors);
+    private Histogram histogram = new Histogram(breakpoints, askWhichSetOfColors());
 
     /**
      * Method called when the graphical interface is loaded
@@ -179,5 +199,18 @@ public class Controller implements Initializable {
         System.out.println("Camera paramétrée : centerX=" + centerX + " ; centerY=" + centerY + " ; width =" + width + " ; aspectRatio=" + aspectRatioWidth/aspectRatioHeight);
 
         return new Camera(centerX, centerY, width, aspectRatioWidth/aspectRatioHeight);
+    }
+
+    private Color[] askWhichSetOfColors (){
+        int setNumber;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Vous êtes maintenant invités à choisir le set de couleurs souhaité :\nSet 1 (Classique - Par défault), Set 2 (Alternatif) ou Set 3 (Coloré)\nSaisissez 1, 2 ou 3 :");
+        setNumber=scan.nextInt();
+        switch(setNumber) {
+            case 1 : return colors_set1;
+            case 2 : return colors_set2;
+            case 3 : return colors_set3;
+            default: return colors_set1;
+        }
     }
 }
