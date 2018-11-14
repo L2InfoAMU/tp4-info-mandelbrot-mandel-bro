@@ -151,6 +151,14 @@ public class ComplexTest {
 
     @Test
     void testSquaredModulus() {
-        assertEquals(Complex.ZERO, Complex.ZERO.squaredModulus());
+        assertEquals(0, Complex.ZERO.squaredModulus());
+        assertEquals(2, oneMinusI.squaredModulus());
+        assertEquals(13, new Complex(2,3).squaredModulus());
+    }
+
+    @Test
+    void testModulus() {
+        assertEquals(0, Complex.ZERO.modulus());
+        assertEquals(Math.sqrt(2));
     }
 }
