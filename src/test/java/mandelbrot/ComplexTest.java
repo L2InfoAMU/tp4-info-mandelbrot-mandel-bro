@@ -164,17 +164,16 @@ public class ComplexTest {
 
     @Test
     void testPow(){
-        Complex c1 = new Complex(1.0,1.0);
-        Complex c1pow2 = new Complex(0.0,2.0);
         Complex c1pow3 = new Complex(-2.0,2.0);
-
-        assertEquals(Complex.ONE, Complex.ONE.pow(0));
-        assertEquals(c1pow2, c1.pow(2));
-        assertEquals(c1pow3, c1.pow(3));
+        assertEquals(Complex.ONE, new Complex(2,3).pow(0));
+        assertEquals(twoI, onePlusI.pow(2));
+        assertEquals(c1pow3, onePlusI.pow(3));
     }
 
-   /* @Test
+   @Test
     void testScale(){
-
-    }*/
+        Complex c = new Complex( 2.0,2.0);
+        assertEquals(c,onePlusI.scale(2.0));
+        assertEquals(Complex.ZERO, onePlusI.scale(0.0));
+    }
 }
