@@ -159,6 +159,22 @@ public class ComplexTest {
     @Test
     void testModulus() {
         assertEquals(0, Complex.ZERO.modulus());
-        assertEquals(Math.sqrt(2));
+        assertEquals(Math.sqrt(2),oneMinusI.modulus());
     }
+
+    @Test
+    void testPow(){
+        Complex c1 = new Complex(1.0,1.0);
+        Complex c1pow2 = new Complex(0.0,2.0);
+        Complex c1pow3 = new Complex(-2.0,2.0);
+
+        assertEquals(Complex.ONE, Complex.ONE.pow(0));
+        assertEquals(c1pow2, c1.pow(2));
+        assertEquals(c1pow3, c1.pow(3));
+    }
+
+   /* @Test
+    void testScale(){
+
+    }*/
 }
