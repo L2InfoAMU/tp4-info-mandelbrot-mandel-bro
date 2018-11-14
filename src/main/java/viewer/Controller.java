@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 /**
  * Controls the color of the pixels of the canvas.
@@ -27,7 +28,8 @@ public class Controller implements Initializable {
     @FXML
     private Canvas canvas; /* The canvas to draw on */
 
-    private Camera camera = Camera.camera0; /* The view to display */
+    //private Camera camera = Camera.camera0;
+    private Camera camera = askWhichCamera(); /* The view to display */
 
     private Mandelbrot mandelbrot = new Mandelbrot(); /* the algorithm */
 
@@ -156,5 +158,26 @@ public class Controller implements Initializable {
             }
         }
         return new Pixel(x, y, sampledSubPixels);
+    }
+
+    private Camera askWhichCamera() {
+        double centerX, centerY, width, aspectRatioWidth, aspectRatioHeight;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Vous allez être invités à paramétrer la caméra que vous souhaitez (Caméra par défaut : centerX = -0.5, centerY = 0., width = 3, aspectRatio=4./3.)");
+        System.out.println(" ! N'oubliez pas que d'utiliser une virgule \",\" et PAS un point \".\" pour entrer un nombre à décimales");
+        System.out.println("Saisissez la coordonnée X (centerX) du point depuis lequel vous souhaitez voir la vue centrée :");
+        centerX = scan.nextDouble();
+        System.out.println("Saisissez la coordonnée Y (centerY) du point depuis lequel vous souhaitez voir la vue centrée :");
+        centerY = scan.nextDouble();
+        System.out.println("Saisissez la largeur (width) de la vue désirée :");
+        width = scan.nextDouble();
+        System.out.println("Saisissez le format d'image (aspectRatio) Width/Height de la vue souhaitée :\nWidth :");
+        aspectRatioWidth = scan.nextDouble();
+        System.out.println("Height :");
+        aspectRatioHeight = scan.nextDouble();
+
+        System.out.println("Camera paramétrée : centerX=" + centerX + " ; centerY=" + centerY + " ; width =" + width + " ; aspectRatio=" + aspectRatioWidth/aspectRatioHeight);
+
+        return new Camera(centerX, centerY, width, aspectRatioWidth/aspectRatioHeight);
     }
 }
