@@ -65,6 +65,17 @@ public class Controller implements Initializable {
 
     };
 
+
+    private Color[] colors_set4 = {
+            Color.rgb(140,34,48),
+            Color.rgb(177,98,115),
+            Color.rgb(87,23,31),
+            Color.rgb(150,10,30),
+            Color.rgb(255,122,136),
+            Color.rgb(177,83,167)
+
+    };
+
     /* algorithm to generate the distribution of colors */
     private Histogram histogram = new Histogram(breakpoints, askWhichSetOfColors());
 
@@ -180,20 +191,22 @@ public class Controller implements Initializable {
         return new Pixel(x, y, sampledSubPixels);
     }
 
+
+    // Ask which camera use and which zoom
     private Camera askWhichCamera() {
         double centerX, centerY, width, aspectRatioWidth, aspectRatioHeight;
         Scanner scan = new Scanner(System.in);
         System.out.println("Vous allez être invités à paramétrer la caméra que vous souhaitez (Caméra par défaut : centerX = -0.5, centerY = 0., width = 3, aspectRatio=4./3.)");
-        System.out.println(" ! N'oubliez pas que d'utiliser une virgule \",\" et PAS un point \".\" pour entrer un nombre à décimales");
-        System.out.println("Saisissez la coordonnée X (centerX) du point depuis lequel vous souhaitez voir la vue centrée :");
+        System.out.println(" <!>  N'oubliez pas que d'utiliser une virgule \",\" et PAS un point \".\" pour entrer un nombre à décimales <!> ");
+        System.out.println("Saisissez la coordonnée X (centerX) du point depuis lequel vous souhaitez voir la vue centrée (par défaut : -0.5) :");
         centerX = scan.nextDouble();
-        System.out.println("Saisissez la coordonnée Y (centerY) du point depuis lequel vous souhaitez voir la vue centrée :");
+        System.out.println("Saisissez la coordonnée Y (centerY) du point depuis lequel vous souhaitez voir la vue centrée (par défaut : 0.0) :");
         centerY = scan.nextDouble();
-        System.out.println("Saisissez la largeur (width) de la vue désirée :");
+        System.out.println("Saisissez la largeur (width) de la vue désirée (par défaut : 3) :");
         width = scan.nextDouble();
-        System.out.println("Saisissez le format d'image (aspectRatio) Width/Height de la vue souhaitée :\nWidth :");
+        System.out.println("Saisissez le format d'image (aspectRatio) Width/Height de la vue souhaitée :\nWidth (par défaut : 4.0) :");
         aspectRatioWidth = scan.nextDouble();
-        System.out.println("Height :");
+        System.out.println("Height (par défaut : 3.0) :");
         aspectRatioHeight = scan.nextDouble();
 
         System.out.println("Camera paramétrée : centerX=" + centerX + " ; centerY=" + centerY + " ; width =" + width + " ; aspectRatio=" + aspectRatioWidth/aspectRatioHeight);
@@ -201,15 +214,19 @@ public class Controller implements Initializable {
         return new Camera(centerX, centerY, width, aspectRatioWidth/aspectRatioHeight);
     }
 
+
+    // Ask which set of colors use
     private Color[] askWhichSetOfColors (){
         int setNumber;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Vous êtes maintenant invités à choisir le set de couleurs souhaité :\nSet 1 (Classique - Par défault), Set 2 (Alternatif) ou Set 3 (Coloré)\nSaisissez 1, 2 ou 3 :");
+        System.out.println("Vous êtes maintenant invités à choisir le set de couleurs souhaité :\nSet 1 (Classique - Par défault neutre), Set 2 (Alternatif ), Set 3 (Coloré fluo) ou Set 4 (Nuances de roses style princesse) \nSaisissez 1, 2, 3 ou 4 :");
         setNumber=scan.nextInt();
+        System.out.println("Merci d'avoir choisi un set de couleur, la fractale sera affichée d'un instant à l'autre (cela peut prendre plusieurs minutes, soyez patients ;D");
         switch(setNumber) {
             case 1 : return colors_set1;
             case 2 : return colors_set2;
             case 3 : return colors_set3;
+            case 4 : return colors_set4;
             default: return colors_set1;
         }
     }
