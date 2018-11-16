@@ -201,6 +201,11 @@ public class Complex {
     }
 
 
+    /*
+    * Testing if this complex is equals to another one
+    *
+    * @param o an object
+    * @return a boolean true if they are equals*/
     @Override
     public boolean equals(Object o) {
         if (this == o)

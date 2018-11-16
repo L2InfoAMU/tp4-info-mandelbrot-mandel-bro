@@ -36,7 +36,7 @@ class Camera {
         this.width = Complex.real(width);
         this.height = new Complex(0, width / aspectRatio);
         this.center = new Complex(centerX, centerY);
-    }
+    } /*Constructeur, appelé dans Controller.java*/
 
     /**
      * Converts position relative to the rectangle defining the view

@@ -28,7 +28,7 @@ public class Controller implements Initializable {
     @FXML
     private Canvas canvas; /* The canvas to draw on */
 
-    //private Camera camera = Camera.camera0;
+    //private Camera camera = Camera.camera0;  ancien version
     private Camera camera = askWhichCamera(); /* The view to display */
 
     private Mandelbrot mandelbrot = new Mandelbrot(); /* the algorithm */
@@ -192,7 +192,7 @@ public class Controller implements Initializable {
     }
 
 
-    // Ask which camera use and which zoom
+    // Ask which camera use and which zoom, by console typing
     private Camera askWhichCamera() {
         double centerX, centerY, width, aspectRatioWidth, aspectRatioHeight;
         Scanner scan = new Scanner(System.in);
@@ -215,13 +215,13 @@ public class Controller implements Initializable {
     }
 
 
-    // Ask which set of colors use
+    // Ask which set of colors use, by console typing
     private Color[] askWhichSetOfColors (){
         int setNumber;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Vous êtes maintenant invités à choisir le set de couleurs souhaité :\nSet 1 (Classique - Par défault neutre), Set 2 (Alternatif ), Set 3 (Coloré fluo) ou Set 4 (Nuances de roses style princesse) \nSaisissez 1, 2, 3 ou 4 :");
+        System.out.println("Vous êtes maintenant invités à choisir le set de couleurs souhaité :\nSet 1 (Classique - Par défault), Set 2 (Alternatif ), Set 3 (Coloré) ou Set 4 (Nuances rosées) \nSaisissez 1, 2, 3 ou 4 :");
         setNumber=scan.nextInt();
-        System.out.println("Merci d'avoir choisi un set de couleur, la fractale sera affichée d'un instant à l'autre (cela peut prendre plusieurs minutes, soyez patients ;D");
+        System.out.println("Vous avez demandé le set " + setNumber +", la fractale sera affichée d'ici à quelques minutes..");
         switch(setNumber) {
             case 1 : return colors_set1;
             case 2 : return colors_set2;
